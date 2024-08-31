@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Add a New Book</h2>
+
+  <form #bookForm="ngForm" (ngSubmit)="onAddBook()" novalidate>
+    <div class="form-group">
+      <label for="title">Book Title:</label>
+      <input type="text" id="title" [(ngModel)]="newBook.title" name="title" class="form-control" placeholder="Enter book title" required>
+      <div *ngIf="bookForm.submitted && !bookForm.controls['title']?.valid" class="text-danger">
+        Please enter the book title.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" id="author" [(ngModel)]="newBook.author" name="author" class="form-control" placeholder="Enter author's name" required>
+      <div *ngIf="bookForm.submitted && !bookForm.controls['author']?.valid" class="text-danger">
+        Please enter the author's name.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="year">Published Year:</label>
+      <input type="number" id="year" [(ngModel)]="newBook.publishedYear" name="year" class="form-control" [min]="minYear" [max]="maxYear" placeholder="Enter published year" required>
+      <div *ngIf="bookForm.submitted && !bookForm.controls['year']?.valid" class="text-danger">
+        Please enter a valid published year between {{ minYear }} and {{ maxYear }}.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Book</button>
+  </form>
+
+  <h3>Book List</h3>
+  <div class="table-container">
+    <table class="table table-striped" *ngIf="books.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>Published Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.publishedYear }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Save Book Details Button -->
+    <button class="btn btn-success save-button" (click)="onSaveBookDetails()">Save Book Details</button>
+  </div>
+</div>

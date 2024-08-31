@@ -1,0 +1,34 @@
+
+<div class="popup-container" *ngIf="isVisible">
+    <div class="popup-content">
+      <h2>Add New Book</h2>
+      <form (ngSubmit)="addBook()">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" [(ngModel)]="newBook.title" name="title" required>
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" [(ngModel)]="newBook.author" name="author" required>
+        </div>
+        <div>
+          <label for="price">Price:</label>
+          <input type="number" id="price" [(ngModel)]="newBook.price" name="price" required>
+        </div>
+        <div>
+          <label for="img">Image Url:</label>
+          <input type="text" id="img" [(ngModel)]="newBook.image_url" name="Image URL" required>
+        </div>
+        <div>
+          <label for="publication_year">Publication year:</label>
+          <input type="number" id="publication_year" [(ngModel)]="newBook.publication_year" name="publication_year" required>
+        </div>
+        <div>
+          <label for="rating">Rating:</label>
+          <input type="number" id="rating" [(ngModel)]="newBook.rating" name="rating" required>
+        </div>
+        <button type="submit">Save Book</button>
+        <button type="button" (click)="closePopup()">Cancel</button>
+      </form>
+    </div>
+  </div>

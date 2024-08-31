@@ -1,0 +1,134 @@
+/* Background image */
+.image-section {
+  background-image: url('https://www.scisdata.com/media/1333/scis_bl0417_2_119.jpg');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: brightness(0.7); /* Makes the image slightly darker */
+}
+
+/* Container for the registration form */
+.registration-container {
+  background: rgba(255, 255, 255, 0.9); /* White background with transparency */
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 10%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Form styles */
+.registration-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.registration-container form div {
+  margin-bottom: 15px;
+}
+
+.registration-container label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.registration-container input[type="text"],
+.registration-container input[type="email"],
+.registration-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.registration-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff9900; /* Amazon-like orange color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.registration-container button:hover {
+  background-color: #e68a00;
+}
+
+/* Link styles */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-link a {
+  color: #0073e6; /* Blue color for link */
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* For tablets and below */
+  .registration-container {
+    padding: 20px;
+    max-width: 90%;
+    margin-top: 15%;
+  }
+
+  .registration-container h2 {
+    font-size: 22px;
+  }
+
+  .registration-container input[type="text"],
+  .registration-container input[type="email"],
+  .registration-container input[type="password"] {
+    padding: 8px;
+  }
+
+  .registration-container button {
+    font-size: 15px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For mobile devices */
+  .registration-container {
+    padding: 15px;
+    max-width: 95%;
+    margin-top: 20%;
+  }
+
+  .registration-container h2 {
+    font-size: 20px;
+  }
+
+  .registration-container input[type="text"],
+  .registration-container input[type="email"],
+  .registration-container input[type="password"] {
+    padding: 7px;
+  }
+
+  .registration-container button {
+    font-size: 14px;
+    padding: 7px;
+  }
+}

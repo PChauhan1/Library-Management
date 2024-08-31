@@ -1,0 +1,105 @@
+<!-- payment.component.html -->
+
+<div class="payment-container">
+    <h1>Pay Invoice</h1>
+  
+    
+    <!-- Payment Amount -->
+    <div class="amount">
+      <label for="amount">Payment amount</label>
+      
+    </div>
+  
+    <!-- Payment Form with Validation -->
+    <form #paymentForm="ngForm">
+      <!-- Name on Card -->
+      <div>
+        <label for="name">Name on card</label>
+        <input 
+          id="name" 
+          type="text" 
+          placeholder="Name on card" 
+          maxlength="12" 
+          required 
+          [(ngModel)]="name" 
+          name="name" 
+          #nameField="ngModel">
+        <div *ngIf="nameField.invalid && nameField.touched" class="error">
+          Name must be between 1 and 12 characters.
+        </div>
+      </div>
+  
+      <!-- Card Number -->
+      <div>
+        <label for="cardNumber">Card number</label>
+        <input 
+          id="cardNumber" 
+          type="number" 
+          placeholder="Card number" 
+          pattern="\d{12}" 
+          required 
+          [(ngModel)]="cardNumber" 
+          name="cardNumber" 
+          #cardNumberField="ngModel">
+        <div *ngIf="cardNumberField.invalid && cardNumberField.touched" class="error">
+          Card number must be exactly 12 digits.
+        </div>
+      </div>
+  
+      <!-- Expiry Date and Security Code -->
+      <div>
+        <label for="expiryDate">Expiry date</label>
+        <input 
+          id="expiryDate" 
+          type="text" 
+          placeholder="MM/YY" 
+          required 
+          [(ngModel)]="expiryDate" 
+          name="expiryDate" 
+          #expiryDateField="ngModel"
+          (blur)="validateExpiryDate()">
+        <div *ngIf="expiryDateField.invalid && expiryDateField.touched" class="error">
+          Expiry date must be in MM/YY format.
+        </div>
+
+        <label for="securityCode">Security code</label>
+        <input 
+          id="securityCode" 
+          type="text" 
+          placeholder="CVV" 
+          maxlength="3" 
+          required 
+          [(ngModel)]="securityCode" 
+          name="securityCode" 
+          #securityCodeField="ngModel"
+          pattern="\d{3}">
+        <div *ngIf="securityCodeField.invalid && securityCodeField.touched" class="error">
+          Security code must be a 3-digit number.
+        </div>
+      </div>
+  
+      <!-- ZIP/Postal Code -->
+      <div>
+        <label for="zipCode">ZIP/Postal code</label>
+        <input 
+          id="zipCode" 
+          type="number" 
+          placeholder="ZIP/Postal code"
+          maxlength="6" 
+          pattern="\d{6}" 
+          required 
+          [(ngModel)]="zipCode" 
+          name="zipCode" 
+          #zipCodeField="ngModel">
+        <div *ngIf="zipCodeField.invalid && zipCodeField.touched" class="error">
+          ZIP/Postal code must be exactly 6 digits.
+        </div>
+      </div>
+  
+      <!-- Payment Buttons -->
+      <div>
+        <button type="submit" (click)="pay()">Pay</button>
+        <button type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>

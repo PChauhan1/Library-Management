@@ -1,0 +1,36 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="onClose()">&times;</span>
+      <h2>Edit Book</h2>
+  
+      <form (ngSubmit)="onSave()">
+        <div>
+          <label for="title">Title</label>
+          <input type="text" id="title" [(ngModel)]="book.title" name="title">
+        </div>
+  
+        <div>
+          <label for="author">Author</label>
+          <input type="text" id="author" [(ngModel)]="book.author" name="author">
+        </div>
+  
+        <div>
+          <label for="publication_year">Publication Year</label>
+          <input type="number" id="publication_year" [(ngModel)]="book.publication_year" name="publication_year">
+        </div>
+  
+        <div>
+          <label for="price">Price</label>
+          <input type="number" id="price" [(ngModel)]="book.price" name="price">
+        </div>
+  
+        <div>
+          <label for="rating">Rating</label>
+          <input type="number" step="0.1" id="rating" [(ngModel)]="book.rating" name="rating">
+        </div>
+  
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  

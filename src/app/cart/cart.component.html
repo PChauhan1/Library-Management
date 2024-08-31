@@ -1,0 +1,32 @@
+<div class="cart-container">
+  <h1>Your Cart</h1>
+
+  <!-- List of Cart Items -->
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.image_url" alt="{{ item.title }}" />
+    <h2>{{ item.title }}</h2>
+    <p><strong>Author:</strong> {{ item.author }}</p>
+    <p><strong>Published Year:</strong> {{ item.publication_year }}</p>
+    <p><strong>Price:</strong> {{ item.price }}</p>
+    <!-- <p><strong>Rating:</strong> {{ item.rating }} / 5</p> -->
+    <div class="stars">
+      <ng-container *ngFor="let star of [].constructor(5); let i = index">
+        <i class="star" [class.filled]="i < item.rating">★</i>
+      </ng-container>
+    </div>
+   
+  </div>
+
+  <!-- Buy Now Button -->
+  <button (click)="checkout()">Buy Now</button>
+</div>
+
+<!-- Payment Popup -->
+<div *ngIf="isPaymentVisible" class="payment-popup-overlay">
+  <div class="payment-popup-content">
+    <button class="close-button" (click)="closePayment()">X</button>
+    
+    <!-- Payment Form -->
+    <app-checkout></app-checkout> <!-- Using the PaymentComponent here -->
+  </div>
+</div>

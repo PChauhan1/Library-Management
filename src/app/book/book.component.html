@@ -1,0 +1,156 @@
+<section class="search-section">
+  <h3>Search for a Book</h3>
+  <form class="search-form" (submit)="searchBooks($event)">
+    <input
+        type="text"
+        placeholder="Search by title, author, or keyword"
+        [(ngModel)]="searchQuery"
+        name="searchQuery"
+        (ngModelChange)="searchBooks($event)"  
+        required />
+        
+
+    
+    <button class="btn primary-btn" type="submit">Search</button>
+   
+  </form>
+
+ 
+
+  <!-- noResults && searchQuery -->
+  <div *ngIf="isSearched && noResults">
+    <p>No books found for "{{ searchQuery }}"</p>
+  </div>
+  <!-- *ngIf="!noResults" -->
+  <ul class="book-list" *ngIf="isSearched && filteredBooks.length > 0">
+    <li *ngFor="let book of filteredBooks">
+      <div class="book-item">
+        <img [src]="book.image_url" alt="{{ book.title }}" class="book-image" />
+        <div class="book-details">
+          <strong>{{ book.title }}</strong> by {{ book.author }} <br>
+          <span class="book-year">({{ book.publication_year }})</span> <br>
+          <span class="book-price">{{ book.price.toFixed(2) }}</span> <br>
+          <span class="book-rating">Rating: {{ book.rating }}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+ 
+</section>
+   
+<div class="products-section">
+  <div *ngFor="let book of books" class="product-card" >
+    <img [src]="book.image_url" alt="{{book.title}}" class="product-image" (click)="openBookDetails(book)">
+    <div class="product-info">
+      <h3 class="product-title">{{book.title}}</h3>
+      <p class="product-author">{{book.author}}</p>
+      <p class="product-price">₹{{book.price}}</p>
+      <p class="product-price">{{book.publication_year}}</p>
+      
+      <div class="stars">
+        <ng-container *ngFor="let star of [].constructor(5); let i = index">
+          <i class="star" [class.filled]="i < book.rating">★</i>
+        </ng-container>
+      </div>
+      <div class="product-actions">
+        <i class="fas fa-edit" (click)="openEditPopup(book)" aria-label="Edit"></i>
+        <i class="fas fa-trash-alt" (click)="deleteBook(book.id)" aria-label="Delete"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<app-editbook *ngIf="isEditPopupVisible"
+[book]="selectedBook"
+(close)="closeEditPopup()"
+(save)="saveBook($event)"></app-editbook>    
+
+<app-bookdetailpopup *ngIf="selectBookDetails"
+[book]="selectBookDetails"
+(close)="closeBookDetailsPopup()"></app-bookdetailpopup>
+
+
+
+<!-- Add Book Popup -->
+<button class="btn secondary-btn" (click)="bookitem.openPopup()">Publish Book Here</button>
+<app-bookitem #bookitem (bookAdded)="onBookAdded($event)"></app-bookitem>
+
+
+
+<h2>Product Related Items</h2>
+
+<div class="container">
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-Harry-Potter-and-Resistance" target="_blank">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/91VsRHjTY-L._AC_UL600_SR600,600_.jpg" alt="Harry Potter and Resistance">
+      <h3>Harry Potter and Resistance</h3>
+      <p>Beth Sutton-Ramspeck</p>
+      <p class="price">₹3,090.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-Disney-The-Simple-Family-Cookbook" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/61N7lLKpvFL._SL1250_.jpg" alt="Disney: The Simple Family Cookbook">
+      <h3>Disney: The Simple Family Cookbook</h3>
+      <p>J-F Mallet</p>
+      <p class="price">₹1,029.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-Tasty-Tiffin-40+-Delicious-and-Healthy-Lunch-Box-Ideas-for-Kids" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/81fgrPmDWnL._SY466_.jpg" alt="Tasty Tiffin: 40+ Delicious and Healthy Lunch Box Ideas for Kids">
+      <h3>Tasty Tiffin: 40+ Delicious and Healthy Lunch Box Ideas for Kids</h3>
+      <p>Archana Doshi</p>
+      <p class="price">₹263.72</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-The-Unofficial-Harry-Potter-Cookbook-80+-Amazing-Recipes-for-Wizards-and-Muggles" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/71gED1J3MqL._SL1360_.jpg" alt="The Unofficial Harry Potter Cookbook: 80+ Amazing Recipes for Wizards and Muggles">
+      <h3>The Unofficial Harry Potter Cookbook: 80+ Amazing Recipes for Wizards and Muggles</h3>
+      <p>Muriel VanDorn</p>
+      <p class="price">₹1,120.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-The-Ultimate-Arsenal-FC-Trivia-Book" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfoGRN9ZkeoTVNl0FuORWKNuv_HBjcg5Qb8w&s" alt="The Ultimate Arsenal FC Trivia Book: A Collection of Amazing Trivia Quizzes and Fun...">
+      <h3>The Ultimate Arsenal FC Trivia Book: A Collection of Amazing Trivia Quizzes and Fun...</h3>
+      <p>Ray Walker</p>
+      <p class="price">₹563.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-Fish-Cookbook" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/A1O36PlQU4L._SL1500_.jpg" alt="Fish Cookbook: How to Buy, Prepare and Cook the Best Sustainable Fish and Seafood f...">
+      <h3>Fish Cookbook: How to Buy, Prepare and Cook the Best Sustainable Fish and Seafood f...</h3>
+      <p>DK</p>
+      <p class="price">₹1,456.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://www.amazon.com/your-link-for-The-Unofficial-Harry-Potter-Cookbook-for-Hungry-Vegans" target="_blank">
+      <img src=" https://m.media-amazon.com/images/I/71u5an29RiL._SL1360_.jpg" alt="The Unofficial Harry Potter Cookbook for Hungry Vegans">
+      <h3>The Unofficial Harry Potter Cookbook for Hungry Vegans</h3>
+      <p>Fantastey Inc</p>
+      <p class="price">₹375.00</p>
+      <p class="prime">✔prime</p>
+    </a>
+  </div>
+  
+</div>
+<div class="controls">
+  <div class="control" id="prev">
+      <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="control" id="next">
+      <i class="fas fa-chevron-right"></i>
+  </div>
+</div>
+
+  

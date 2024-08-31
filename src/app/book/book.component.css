@@ -1,0 +1,357 @@
+ /* showbook.component.css */
+ .stars {
+  display: inline-block;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: lightgray;
+}
+
+.star.filled {
+  color: gold;
+}
+
+
+
+
+/*edit and delete action */
+.product-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* Align icons to the right */
+  gap: 15px; /* Space between icons */
+  font-size:2.6em; /* Increase icon size */
+  cursor: pointer; /* Change cursor to pointer */
+ 
+}
+
+.product-actions i {
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.product-actions i:hover {
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+
+.product-actions i {
+  font-size: 18px; /* Adjust size of the icons */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.product-actions i:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.product-actions i.fa-edit {
+  color: #4CAF50; /* Green color for edit icon */
+}
+
+.product-actions i.fa-trash-alt {
+  color: #f44336; /* Red color for delete icon */
+}
+.products-section {
+  
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  }
+  
+  .product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  }
+  /* .product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: shake 0.5s; /* Add shake animation on hover */
+  
+  
+ 
+  
+  
+  /* .product-card:hover {
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: ;
+  } */
+  .product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: shake 0.5s; /* Add shake animation on hover */
+  }
+  
+  
+  .product-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  }
+  
+  .product-info {
+  text-align: left;
+  
+  }
+  
+  .product-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  }
+  
+  .product-author {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 10px;
+  }
+  
+  .product-price {
+  font-size: 23px;
+  color: #b12704;
+  margin-bottom: 5px;
+  }
+  
+  .product-rating {
+  font-size: 25px;
+  color: #555;
+  }
+
+/* Add Button */
+.secondary-btn {
+  display: block;
+  margin: 0 auto; /* Centers the button horizontally */
+  padding: 15px 30px; /* Adjust padding for size */
+  background-color: #008080; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+  background-color:#00796b ;
+ 
+  color: #eaf0ef;
+  border: 2px solid #00796b;
+}
+
+.secondary-btn :hover{
+  background-color: #a9d1d1; /* Darker green on hover */
+  transform: scale(1.09); /* Slightly enlarge on hover */
+}
+/* Styling for the edit and delete buttons */
+button {
+  font-size: 25px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding:   
+ 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 5px; /* Add space between buttons */
+}
+
+/* Styling for the delete button */
+button.delete {
+  background-color: rgb(134, 81, 81);
+}
+
+/* Styling for the delete button */
+button.delete {
+  background-color: red;
+}
+
+/* Search Section */
+.search-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.search-section h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-form input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #00796b;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-form .btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form .btn:hover {
+  opacity: 0.9;
+}
+
+
+
+
+
+
+/* Book Container */
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Book Image */
+.book-image {
+  flex: 1;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.book-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Book Details */
+.book-details {
+  flex: 2;
+}
+
+.book-details h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #333;
+}
+
+.book-details p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.book-details strong {
+  color: #333;
+}
+
+
+
+.book-details button:hover {
+  background-color: #0056b3;
+}
+
+/* product related items*/
+
+h2{
+  font-size:50px;
+  font-weight: 300;
+}
+.container {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.card {
+  min-width: 250px;
+  margin: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.card h3 {
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+
+.card p {
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.card .price {
+  font-weight: bold;
+}
+
+.card .prime {
+  color: #007bff;
+  font-size: 12px;
+}
+
+.card:hover {
+  border-color: orange;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card:hover h3,
+.card:hover p {
+  color: orange;
+}
+
+.card a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.control {
+  background-color: #ddd;
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control:hover {
+  background-color: #ccc;
+}
+
+.control i {
+  font-size: 16px;
+}
+

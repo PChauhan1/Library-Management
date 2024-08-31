@@ -1,0 +1,23 @@
+<div *ngIf="isOpen" class="modal-overlay" (click)="closeModal()"></div>
+<div *ngIf="isOpen" class="modal">
+  <div class="modal-header">
+    <h2>📚 Library System Update</h2>
+    <button class="close-button" (click)="closeModal()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <h3>New Features and Improvements</h3>
+    <!-- <p class="date">Date: August 27, 2024</p> -->
+    <p>We are excited to announce the latest updates to our Library Management System! Here’s what’s new:</p>
+    <ul>
+        <li>🔍 <strong>Enhanced Search Functionality</strong>: Improved search algorithm for quicker results.</li>
+      <li>📅 <strong>New Reservation System</strong>: Reserve books online with notifications.</li>
+      <li>📊 <strong>User Dashboard</strong>: Get a personalized overview of your activity.</li>
+      <li>⏳ <strong>Extended Loan Periods</strong>: More time to enjoy your books.</li>
+    </ul>
+    <h4>Upcoming Maintenance</h4>
+    <p>The system will undergo maintenance on August 30, 2024, from 10:00 PM to 2:00 AM.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="cta-button" (click)="closeModal()">Got it!</button>
+  </div>
+</div>

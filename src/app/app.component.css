@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar styles */
+.navbar {
+    background-image: url('back.jpg'); /* Replace with your image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.navbar-menu li {
+    margin-left: 20px; /* Add some spacing between menu items */
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    transition: color 0.3s ease;
+    font-weight: 700;
+}
+
+.navbar-menu a:hover {
+    color: #e67e22;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* For tablets and below */
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        margin-top: 15px;
+        font-size: 1.2em;
+    }
+
+    .navbar-menu li {
+        margin: 10px 0;
+    }
+
+    .navbar-brand a {
+        font-size: 22px;
+    }
+
+    .navbar-menu a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For mobile devices */
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar-brand a {
+        font-size: 20px;
+    }
+
+    .navbar-menu {
+        font-size: 1.1em;
+    }
+
+    .navbar-menu a {
+        font-size: 18px;
+    }
+}
